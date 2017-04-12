@@ -4,8 +4,8 @@ import Fixtures from './fixtures';
 
 import '../style.css';
 
-const App = React.createClass({
-  render() {
+export default class App extends React.Component {
+    render() {
     return (
       <div>
         <Header />
@@ -14,7 +14,5 @@ const App = React.createClass({
         </div>
       </div>
     );
-  },
-});
-
-export default App;
+  }
+}

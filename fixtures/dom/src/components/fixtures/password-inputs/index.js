@@ -4,7 +4,7 @@ import FixtureSet from '../../FixtureSet';
 import TestCase from '../../TestCase';
 import PasswordTestCase from './PasswordTestCase'
 
-const NumberInputs = React.createClass({
+class NumberInputs extends React.Component {
   render() {
     return (
       <FixtureSet title="Password inputs" description="">
@@ -27,7 +27,7 @@ const NumberInputs = React.createClass({
         </TestCase>
       </FixtureSet>
     );
-  },
-});
+  }
+};
 
 export default NumberInputs;

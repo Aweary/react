@@ -1,11 +1,12 @@
 const React = window.React;
 
-const TextInputFixtures = React.createClass({
-  getInitialState() {
-    return {
+class TextInputFixtures extends React.Component {
+  constructor() {
+    super();
+    this.state = {
       color: '#ffaaee',
     };
-  },
+  }
 
   renderControlled(type) {
     let id = `controlled_${type}`;
@@ -29,7 +30,7 @@ const TextInputFixtures = React.createClass({
         &nbsp; &rarr; {JSON.stringify(state)}
       </div>
     );
-  },
+  }
 
   renderUncontrolled(type) {
     let id = `uncontrolled_${type}`;
@@ -39,7 +40,7 @@ const TextInputFixtures = React.createClass({
         <input id={id} type={type} />
       </div>
     );
-  },
+  }
 
   render() {
     // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
@@ -60,7 +61,7 @@ const TextInputFixtures = React.createClass({
         </fieldset>
       </form>
     );
-  },
-});
+  }
+};
 
 module.exports = TextInputFixtures;

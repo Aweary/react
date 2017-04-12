@@ -12,7 +12,7 @@ import ButtonFixtures from './buttons';
  * A simple routing component that renders the appropriate
  * fixture based on the location pathname.
  */
-const FixturesPage = React.createClass({
+class FixturesPage extends React.Component {
   render() {
     switch (window.location.pathname) {
       case '/text-inputs':
@@ -34,7 +34,7 @@ const FixturesPage = React.createClass({
       default:
         return <p>Please select a test fixture.</p>;
     }
-  },
-});
+  }
+};
 
 module.exports = FixturesPage;

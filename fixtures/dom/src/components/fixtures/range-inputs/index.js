@@ -1,12 +1,13 @@
 const React = window.React;
 
-const RangeInputs = React.createClass({
-  getInitialState() {
-    return { value: 0.5 };
-  },
+class RangeInputs extends React.Component {
+  constructor() {
+    super();
+    this.state = { value: 0.5 };
+  }
   onChange(event) {
     this.setState({ value: event.target.value });
-  },
+  }
   render() {
     return (
       <form>
@@ -22,7 +23,7 @@ const RangeInputs = React.createClass({
         </fieldset>
       </form>
     );
-  },
-});
+  }
+};
 
 export default RangeInputs;

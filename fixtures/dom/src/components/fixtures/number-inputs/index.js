@@ -4,7 +4,7 @@ import FixtureSet from '../../FixtureSet';
 import TestCase from '../../TestCase';
 import NumberTestCase from './NumberTestCase';
 
-const NumberInputs = React.createClass({
+class NumberInputs extends React.Component {
   render() {
     return (
       <FixtureSet
@@ -161,7 +161,7 @@ const NumberInputs = React.createClass({
         </TestCase>
       </FixtureSet>
     );
-  },
-});
+  }
+};
 
 export default NumberInputs;

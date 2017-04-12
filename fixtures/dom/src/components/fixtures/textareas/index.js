@@ -1,12 +1,13 @@
 const React = window.React;
 
-const TextAreaFixtures = React.createClass({
-  getInitialState() {
-    return { value: '' };
-  },
+class TextAreaFixtures extends React.Component {
+  constructor() {
+    super();
+    this.state = { value: '' };
+  }
   onChange(event) {
     this.setState({ value: event.target.value });
-  },
+  }
   render() {
     return (
       <div>
@@ -30,7 +31,7 @@ const TextAreaFixtures = React.createClass({
         </div>
       </div>
     );
-  },
-});
+  }
+};
 
 module.exports = TextAreaFixtures;

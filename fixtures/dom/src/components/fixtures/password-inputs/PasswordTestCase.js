@@ -2,13 +2,14 @@ const React = window.React;
 
 import Fixture from '../../Fixture';
 
-const PasswordTestCase = React.createClass({
-  getInitialState() {
-    return { value: '' };
-  },
+class PasswordTestCase extends React.Component {
+  constructor() {
+    super();
+    this.state = { value: '' };
+  }
   onChange(event) {
     this.setState({ value: event.target.value })
-  },
+  }
   render() {
     return (
       <Fixture>
@@ -28,7 +29,7 @@ const PasswordTestCase = React.createClass({
         </div>
       </Fixture>
     );
-  },
-});
+  }
+};
 
 export default PasswordTestCase;
