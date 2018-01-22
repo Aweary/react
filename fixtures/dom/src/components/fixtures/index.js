@@ -1,3 +1,5 @@
+import Header from '../Header';
+
 import RangeInputFixtures from './range-inputs';
 import TextInputFixtures from './text-inputs';
 import SelectFixtures from './selects';
@@ -11,44 +13,43 @@ import ErrorHandling from './error-handling';
 import EventPooling from './event-pooling';
 import CustomElementFixtures from './custom-elements';
 import MediaEventsFixtures from './media-events';
+import {
+  SelectionEventFixtureRoot,
+  SelectionEventFixtureIFrame,
+} from './selection-events';
 
 const React = window.React;
 
-/**
- * A simple routing component that renders the appropriate
- * fixture based on the location pathname.
- */
+const RouteConfig = {
+  '/text-inputs': <TextInputFixtures />,
+  '/range-inputs': <RangeInputFixtures />,
+  '/selects': <SelectFixtures />,
+  '/textareas': <TextAreaFixtures />,
+  '/input-change-events': <InputChangeEvents />,
+  '/number-inputs': <NumberInputFixtures />,
+  '/password-inputs': <PasswordInputFixtures />,
+  '/buttons': <ButtonFixtures />,
+  '/date-inputs': <DateInputFixtures />,
+  '/error-handling': <ErrorHandling />,
+  '/event-pooling': <EventPooling />,
+  '/custom-elements': <CustomElementFixtures />,
+  '/media-events': <MediaEventsFixtures />,
+  '/selection-events': <SelectionEventFixtureRoot />,
+};
+
 function FixturesPage() {
-  switch (window.location.pathname) {
-    case '/text-inputs':
-      return <TextInputFixtures />;
-    case '/range-inputs':
-      return <RangeInputFixtures />;
-    case '/selects':
-      return <SelectFixtures />;
-    case '/textareas':
-      return <TextAreaFixtures />;
-    case '/input-change-events':
-      return <InputChangeEvents />;
-    case '/number-inputs':
-      return <NumberInputFixtures />;
-    case '/password-inputs':
-      return <PasswordInputFixtures />;
-    case '/buttons':
-      return <ButtonFixtures />;
-    case '/date-inputs':
-      return <DateInputFixtures />;
-    case '/error-handling':
-      return <ErrorHandling />;
-    case '/event-pooling':
-      return <EventPooling />;
-    case '/custom-elements':
-      return <CustomElementFixtures />;
-    case '/media-events':
-      return <MediaEventsFixtures />;
-    default:
-      return <p>Please select a test fixture.</p>;
+  const {pathname} = window.location;
+  if (pathname === '/selection-events-iframe') {
+    return <SelectionEventFixtureIFrame />;
   }
+  return (
+    <div>
+      <Header />
+      <div className="container">
+        {RouteConfig[pathname] || <p>Please select a test fixture.</p>}
+      </div>
+    </div>
+  );
 }
 
 export default FixturesPage;

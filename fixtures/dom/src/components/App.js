@@ -5,14 +5,7 @@ import '../style.css';
 const React = window.React;
 
 function App() {
-  return (
-    <div>
-      <Header />
-      <div className="container">
-        <Fixtures />
-      </div>
-    </div>
-  );
+  return <Fixtures />;
 }
 
 export default App;
