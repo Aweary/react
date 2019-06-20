@@ -898,6 +898,9 @@ const PressResponder = {
 
           const wasLongPressed = state.isLongPressed;
           dispatchPressEndEvents(event, context, props, state);
+          if (isKeyboardEvent) {
+            removeRootEventTypes(context, state);
+          }
 
           if (state.pressTarget !== null && props.onPress) {
             if (!isKeyboardEvent) {
@@ -938,7 +941,12 @@ const PressResponder = {
       }
 
       case 'click': {
-        removeRootEventTypes(context, state);
+        // The Enter key can trigger a click event before keyup,
+        // so avoid removing the event types in that case so keyup still
+        // gets handled.
+        if (state.pointerType !== 'keyboard') {
+          removeRootEventTypes(context, state);
+        }
         if (state.shouldPreventClick) {
           nativeEvent.preventDefault();
         }
